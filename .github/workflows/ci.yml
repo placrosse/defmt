@@ -67,6 +67,5 @@ jobs:
     - name: Run QEMU examples
       working-directory: firmware/qemu
       run: |
-        which qemu-system-arm
         cargo run --target ${{ env.NO_STD_TARGET }} --bin log
         cargo run --target ${{ env.NO_STD_TARGET }} --release --bin log
