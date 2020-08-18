@@ -67,5 +67,7 @@ jobs:
     - name: Run QEMU examples
       working-directory: firmware/qemu
       run: |
+        apt-get install binutils
+        objdump --section-headers ../../target/thumbv7m-none-eabi/debug/log
         cargo run --target ${{ env.NO_STD_TARGET }} --bin log
         cargo run --target ${{ env.NO_STD_TARGET }} --release --bin log
