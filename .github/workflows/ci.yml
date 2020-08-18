@@ -66,6 +66,7 @@ jobs:
     - name: Run QEMU examples
       working-directory: firmware/qemu
       run: |
+        cargo run --target ${{ env.NO_STD_TARGET }} --bin log
         cargo rb log
         cargo rrb log
 # todo if that works, compile with --deny warnings
