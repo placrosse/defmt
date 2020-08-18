@@ -25,6 +25,7 @@ fn notmain() -> Result<Option<i32>, anyhow::Error> {
 
     let path = &args[0];
     let bytes = fs::read(path)?;
+    println!("{:?}", path);
     let table = elf2table::parse(&bytes)?.ok_or_else(|| anyhow!("`.defmt` section not found"))?;
 
     let mut child = KillOnDrop(
